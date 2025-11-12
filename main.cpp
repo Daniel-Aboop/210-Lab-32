@@ -19,7 +19,7 @@ int main() {
     srand(time(0));
     Car startingcar1;
     Car startingcar2;
-    for(int i=0;i<4;i++){
+    for(int i=0;i<arraysize;i++){
         Car temp;
         Car temp2;
         cars[i].push_back(temp);
@@ -32,10 +32,11 @@ int main() {
               cout<<"    ";car.print();
         }
     }
-    for(int i=1;i<=50;i++){
-        int ranNum=randomprob();
+    for(int i=1;i<=20;i++){
+       
         cout<<"Time: "<<i<<endl;
-        for(int y=0;y<arraysize++){
+        for(int y=0;y<arraysize;y++){
+            int ranNum=randomprob();
             cout<<"Lane: "<<y+1;
             //this is to check if its empty for the 50/50 chance to add a car
             if(cars[y].empty()){
@@ -60,12 +61,16 @@ int main() {
                 }
                 //15% probability that the rear car will shift lanes
                 else{
-                  int ranNum = rand() % 4;
-                  int ranNum2=rand()%4;
-                  while(ranNum==ranNum2){
-
+                  int ranNum;// goes to
+                  int ranNum2; // comes from
+                  while(ranNum==ranNum2||cars[ranNum2].empty()){
+                    ranNum2=rand()%4;
+                    ranNum=rand()%4;
                   }
-                  cars[ranNum]
+                  Car temp=cars[ranNum2].back();
+                  cars[ranNum2].pop_back();
+                  cars[ranNum].push_back(temp);
+                  cout<<" Switched: ";temp.print();
                 }
             }
             cout<<endl;
