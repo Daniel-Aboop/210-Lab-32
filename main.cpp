@@ -24,8 +24,8 @@ int main() {
     cout<<endl;
     int counter=1;
     while(!cars.empty()){
-        cout<<"Time: "<<counter;
-        cout<<" Operation: "<<endl;
+        cout<<"Time: "<<counter<<endl;
+        cout<<"Operation: ";
         if(randomprob()<=55){
             cout<<"Car paid: ";cars.front().print();
             cars.pop_front();
@@ -46,7 +46,6 @@ int main() {
         }
         counter++;
     }   
-    
     return 0; 
 }
 int randomprob(){
