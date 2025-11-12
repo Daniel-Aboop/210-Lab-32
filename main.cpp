@@ -8,6 +8,9 @@
 using namespace std;
 
 const int lanesize=2;
+const int LEAVE=46;
+const int JOIN=39;
+const int SHIFT=15;
 int randomprob();
 
 int main() {
@@ -26,6 +29,23 @@ int main() {
         cout<<"Lane "<<i+1<<endl;
         for(auto& car:cars[i]){
               cout<<"    ";car.print();
+        }
+    }
+    for(int i=1;i<=20;i++){
+        int ranNum=randomprob();
+        cout<<"Time: "<<i<<endl;
+        for(int i=)
+        //46% probability that the car at the head of the queue pays its toll and leaves the queue
+        if(ranNum<=LEAVE){  
+
+        }
+        //39% probability that another car joins the queue
+        else if(ranNum<=LEAVE+JOIN){
+
+        }
+        //15% probability that the rear car will shift lanes
+        else{
+
         }
     }
    /*
