@@ -3,19 +3,30 @@
 #include <ctime>
 #include <iomanip>
 #include <random>
+#include <array>
 #include "Car.h"
 using namespace std;
 
-const int startingsize=2;
+const int lanesize=2;
 int randomprob();
 
 int main() {
-    deque<Car> cars;
+    deque<Car> cars[4];
     srand(time(0));
     Car startingcar1;
     Car startingcar2;
-    cars.push_back(startingcar1);
-    cars.push_back(startingcar2);
+    for(int i=0;i<4;i++){
+        Car temp;
+        Car temp2;
+        cars[i].push_back(temp);
+        cars[i].push_back(temp2);
+    }
+    for(int i=0;i<4;i++){
+        for(auto& car:cars[i]){
+
+        }
+    }
+   /*
     cout<<endl;
     cout<<"Inital queue: "<<endl;
     for(auto& car: cars){
@@ -26,6 +37,7 @@ int main() {
     while(!cars.empty()){
         cout<<"Time: "<<counter<<endl;
         cout<<"Operation: ";
+        int randomholder=randomprob();
         if(randomprob()<=55){
             cout<<"Car paid: ";cars.front().print();
             cars.pop_front();
@@ -46,6 +58,7 @@ int main() {
         }
         counter++;
     }   
+        */
     return 0; 
 }
 int randomprob(){
