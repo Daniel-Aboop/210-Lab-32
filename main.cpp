@@ -25,7 +25,7 @@ int main() {
     int counter=1;
     while(!cars.empty()){
         cout<<"Time: "<<counter;
-        cout<<" Operation: ";
+        cout<<" Operation: "<<endl;
         if(randomprob()<=55){
             cout<<"Car paid: ";cars.front().print();
             cars.pop_front();
@@ -33,16 +33,20 @@ int main() {
         if(randomprob()<=45){
             Car temp;
             cars.push_back(temp);
+            cout<<"Joined Lane";temp.print();
         }
-        cout<<endl;
         cout<<"Queue: "<<endl;
-        for(auto& car: cars){
-        car.print();
+        if(!cars.empty()){
+            for(auto& car: cars){
+                cout<<"    ";car.print();
+            }
+        }
+       else{
+            cout<<"    Empty";
         }
         counter++;
-        cout<<endl;
     }   
-    cout<<"Empty"<<endl;
+    
     return 0; 
 }
 int randomprob(){
