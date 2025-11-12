@@ -35,32 +35,48 @@ int main() {
         int ranNum=randomprob();
         cout<<"Time: "<<i<<endl;
         for(int y=0;y<4;y++){
-            cout<<"Lane: "<<y;
+            cout<<"Lane: "<<y+1;
             //this is to check if its empty for the 50/50 chance to add a car
             if(cars[y].empty()){
                 if(randomprob()<=50){
                     Car temp;
-                    cars[i].push_back(temp);
+                    cars[y].push_back(temp);
+                    cout<<" Joined Lane: ";temp.print();
                 }
             }
             // if its not empty it goes here
             else{
                 //46% probability that the car at the head of the queue pays its toll and leaves the queue
                 if(ranNum<=LEAVE){  
-                    cars[i].pop_front();
+                    cout<<" Paid: ";cars[y].front().print();
+                    cars[y].pop_front();
                 }
                 //39% probability that another car joins the queue
                 else if(ranNum<=LEAVE+JOIN){
                     Car temp;
-                    cars[i].push_back(temp);
+                    cars[y].push_back(temp);
+                    cout<<" Joined: ";temp.print();
                 }
                 //15% probability that the rear car will shift lanes
                 else{
-                   
+                  
                 }
             }
+            cout<<endl;
         }
-        
+        cout<<endl;
+        for(int i=0;i<4;i++){
+            cout<<"Lane "<<i+1<<" Queue:"<<endl;
+        if(!cars[i].empty()){
+      
+        for(auto& car:cars[i]){
+              cout<<"    ";car.print();
+        }
+        }
+        else{
+            cout<<"Empty"<<endl;;
+        }
+        }
     }
    /*
     cout<<endl;
