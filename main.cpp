@@ -3,7 +3,7 @@
 #include <ctime>
 #include <iomanip>
 #include <random>
-#include <array
+#include <array>
 #include "Car.h"
 using namespace std;
 
@@ -11,10 +11,11 @@ const int lanesize=2;
 const int LEAVE=46;
 const int JOIN=39;
 const int SHIFT=15;
+const int arraysize=4;
 int randomprob();
 
 int main() {
-    deque<Car> cars[4];
+    deque<Car> cars[arraysize];
     srand(time(0));
     Car startingcar1;
     Car startingcar2;
@@ -31,10 +32,10 @@ int main() {
               cout<<"    ";car.print();
         }
     }
-    for(int i=1;i<=20;i++){
+    for(int i=1;i<=50;i++){
         int ranNum=randomprob();
         cout<<"Time: "<<i<<endl;
-        for(int y=0;y<4;y++){
+        for(int y=0;y<arraysize++){
             cout<<"Lane: "<<y+1;
             //this is to check if its empty for the 50/50 chance to add a car
             if(cars[y].empty()){
@@ -59,7 +60,12 @@ int main() {
                 }
                 //15% probability that the rear car will shift lanes
                 else{
-                  
+                  int ranNum = rand() % 4;
+                  int ranNum2=rand()%4;
+                  while(ranNum==ranNum2){
+
+                  }
+                  cars[ranNum]
                 }
             }
             cout<<endl;
@@ -74,43 +80,10 @@ int main() {
         }
         }
         else{
-            cout<<"Empty"<<endl;;
+            cout<<" Empty"<<endl;;
         }
         }
     }
-   /*
-    cout<<endl;
-    cout<<"Inital queue: "<<endl;
-    for(auto& car: cars){
-        car.print();
-    }
-    cout<<endl;
-    int counter=1;
-    while(!cars.empty()){
-        cout<<"Time: "<<counter<<endl;
-        cout<<"Operation: ";
-        int randomholder=randomprob();
-        if(randomprob()<=55){
-            cout<<"Car paid: ";cars.front().print();
-            cars.pop_front();
-        }
-        if(randomprob()<=45){
-            Car temp;
-            cars.push_back(temp);
-            cout<<"Joined Lane";temp.print();
-        }
-        cout<<"Queue: "<<endl;
-        if(!cars.empty()){
-            for(auto& car: cars){
-                cout<<"    ";car.print();
-            }
-        }
-       else{
-            cout<<"    Empty";
-        }
-        counter++;
-    }   
-        */
     return 0; 
 }
 int randomprob(){
