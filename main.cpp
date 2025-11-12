@@ -21,9 +21,11 @@ int main() {
         cars[i].push_back(temp);
         cars[i].push_back(temp2);
     }
+    cout<<"Initial queue: "<<endl;
     for(int i=0;i<4;i++){
+        cout<<"Lane "<<i+1<<endl;
         for(auto& car:cars[i]){
-
+              cout<<"    ";car.print();
         }
     }
    /*
