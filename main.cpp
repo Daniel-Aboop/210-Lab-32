@@ -21,17 +21,28 @@ int main() {
     for(auto& car: cars){
         car.print();
     }
+    cout<<endl;
+    int counter=1;
     while(!cars.empty()){
+        cout<<"Time: "<<counter;
+        cout<<" Operation: ";
         if(randomprob()<=55){
-            
+            cout<<"Car paid: ";cars.front().print();
+            cars.pop_front();
         }
         if(randomprob()<=45){
             Car temp;
             cars.push_back(temp);
         }
-
-    }
-
+        cout<<endl;
+        cout<<"Queue: "<<endl;
+        for(auto& car: cars){
+        car.print();
+        }
+        counter++;
+        cout<<endl;
+    }   
+    cout<<"Empty"<<endl;
     return 0; 
 }
 int randomprob(){
