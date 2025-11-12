@@ -22,8 +22,12 @@ int main() {
         car.print();
     }
     while(!cars.empty()){
-        if(randomprob()<55){
+        if(randomprob()<=55){
             
+        }
+        if(randomprob()<=45){
+            Car temp;
+            cars.push_back(temp);
         }
 
     }
